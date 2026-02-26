@@ -23,9 +23,13 @@ public class LoginSteps {
 	@When("user enters username {string} and password {string}")
 	public void user_enters_username_and_password(String username, String password) {
 	    // Write code here that turns the phrase above into concrete actions
-        driver.findElement(By.id("user-name")).sendKeys(username);
-        driver.findElement(By.id("password")).sendKeys(password);
-        driver.findElement(By.id("login-button")).click();
+	    driver.findElement(By.xpath("//input[@id='user-name']")).sendKeys(username);
+	    
+	    // Using CSS Selector
+	    driver.findElement(By.cssSelector("#password")).sendKeys(password);
+	    
+	    // Using XPath contains
+	    driver.findElement(By.xpath("//input[contains(@id,'login')]")).click();
 
 	}
 
